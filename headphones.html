@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Product Showcase</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+    }
+
+    nav {
+      background-color: #333;
+      color: #fff;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav h1 {
+      font-size: 1.5rem;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav ul li {
+      cursor: pointer;
+    }
+
+    a {
+  text-decoration: none;
+  color: inherit;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      padding: 2rem;
+    }
+
+    .card {
+      background-color: white;
+      width: 250px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .card button {
+      width: 100%;
+      padding: 0.8rem;
+      border: none;
+      background-color: #007bff;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+    }
+
+    .card button:hover {
+      background-color: #0056b3;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <h1>HEADPHONES</h1>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="javascript:history.back()">Previous</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <div class="card">
+      <img src="audio_file\assets\product-xx59-headphones\desktop\image-product.jpg" alt="xx59-headphones" />
+      <button><a href="product.html?product=xx59">See Product</a></button>
+    </div>
+    <div class="card">
+      <img src="audio_file\assets\product-xx59-headphones\desktop\image-gallery-1.jpg" alt="xx59-headphones" />
+      <button><a href="product.html?product=xx59">See Product</a></button>
+    </div>
+    <div class="card">
+      <img src="audio_file\assets\product-xx59-headphones\desktop\image-gallery-2.jpg" alt="xx59-headphones" />
+      <button><a href="product.html?product=xx59">See Product</a></button>
+    </div>
+    <div class="card">
+      <img src="audio_file\assets\product-xx59-headphones\desktop\image-gallery-3.jpg" alt="xx59-headphones" />
+      <button><a href="product.html?product=xx59">See Product</a></button>
+    </div>
+     <div class="card">
+      <img src="audio_file\assets\product-xx99-mark-one-headphones\desktop\image-product.jpg" alt="xx99-mark-one-headphones" />
+      <button><a href="product.html?product=xx99">See Product</a></button>
+    </div>
+    <div class="card">
+      <img src="audio_file\assets\product-xx99-mark-one-headphones\desktop\image-gallery-1.jpg" alt="xx99-mark-one-headphones" />
+      <button><a href="product.html?product=xx99">See Product</a></button>
+    </div>
+    <div class="card">
+      <img src="audio_file\assets\product-xx99-mark-one-headphones\desktop\image-gallery-2.jpg" alt="xx99-mark-one-headphones" />
+      <button><a href="product.html?product=xx99">See Product</a></button>
+    </div>
+    <div class="card">
+      <img src="audio_file\assets\product-xx99-mark-one-headphones\desktop\image-gallery-3.jpg" alt="xx99-mark-one-headphones" />
+      <button><a href="product.html?product=xx99">See Product</a></button>
+    </div>
+    <div class="card">
+      <img src="audio_file\assets\product-xx99-mark-two-headphones\desktop\image-gallery-1.jpg" alt="image-xx99-mark-two-headphones" />
+      <button>S<a href="product.html?product=xx99">See Product</a></button>
+    </div>
+    <div class="card">
+      <img src="audio_file\assets\product-xx99-mark-two-headphones\desktop\image-gallery-2.jpg" alt="image-xx99-mark-two-headphones" />
+      <button><a href="product.html?product=xx99">See Product</a></button>
+    </div>
+    <div class="card">
+      <img src="audio_file\assets\product-xx99-mark-two-headphones\desktop\image-gallery-3.jpg" alt="image-xx99-mark-two-headphones" />
+      <button><a href="product.html?product=xx99">See Product</a></button>
+    </div>
+    <div class="card">
+      <img src="audio_file\assets\product-xx99-mark-two-headphones\desktop\image-product.jpg" alt="xx99-mark-two-headphones" />
+      <button><a href="product.html?product=xx99">See Product</a></button>
+    </div>
+  </div>
+
+</body>
+</html>

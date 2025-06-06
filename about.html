@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About - Product Catalog</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
+      color: #333;
+    }
+
+   /* header {
+      background-color: #000;
+      color: white;
+      padding: 1rem 2rem;
+      text-align: center;
+    }*/
+
+    nav {
+      background-color: #333;
+      color: #fff;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav h1 {
+      font-size: 1.5rem;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav ul li {
+  cursor: pointer;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+
+.about-container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+
+    .product-card {
+      display: flex;
+      flex-wrap: wrap;
+      background: white;
+      border-radius: 10px;
+      margin-bottom: 2rem;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .product-card:hover {
+      transform: scale(1.02);
+    }
+
+    .product-card img {
+      width: 100%;
+      max-width: 350px;
+      object-fit: cover;
+    }
+
+    .product-info {
+      flex: 1;
+      padding: 1.5rem;
+    }
+
+    .product-info h2 {
+      margin-top: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .price {
+      color: #d87d4a;
+      font-size: 1.2rem;
+    }
+
+    .features {
+      color: #555;
+      margin-top: 0.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .product-card {
+        flex-direction: column;
+      }
+
+      .product-card img {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+   <nav>
+       <h1>Our Premium Audio Products</h1>  
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="javascript:history.back()">Previous</a></li>
+    </ul>
+  </nav>
+  <main class="about-container">
+
+    <!-- ZX9 Speaker -->
+    <section class="product-card">
+      <img src="audio_file/assets/product-zx9-speaker/desktop/image-product.jpg" alt="ZX9 Speaker">
+      <div class="product-info">
+        <h2>ZX9 Speaker <span class="price">$4,500</span></h2>
+        <p class="description">Upgrade your sound system with truly wireless bookshelf speakers. Offers rich sound and versatile inputs.</p>
+        <h4>Features</h4>
+        <p class="features">Optical, USB, RCA, XLR inputs; Bluetooth with 100m range; planar diaphragm tweeter; 6.5" aluminum bass unit.</p>
+      </div>
+    </section>
+
+    <!-- ZX7 Speaker -->
+    <section class="product-card">
+      <img src="audio_file/assets/product-zx7-speaker/desktop/image-product.jpg" alt="ZX7 Speaker">
+      <div class="product-info">
+        <h2>ZX7 Speaker <span class="price">$3,500</span></h2>
+        <p class="description">Stream high-quality sound wirelessly. Top-of-the-line speakers with audiophile-grade components.</p>
+        <h4>Features</h4>
+        <p class="features">Flat diaphragm tweeter, aluminum woofers, MDF wood enclosure, Bluetooth and optical connectivity, wireless remote.</p>
+      </div>
+    </section>
+
+    <!-- YX1 Earphones -->
+    <section class="product-card">
+      <img src="audio_file/assets/product-yx1-earphones/desktop/image-product.jpg" alt="YX1 Earphones">
+      <div class="product-info">
+        <h2>YX1 Wireless Earphones <span class="price">$599</span></h2>
+        <p class="description">Enjoy high-fidelity sound in any environment with active noise cancellation and ergonomic design.</p>
+        <h4>Features</h4>
+        <p class="features">7hr battery, 28hr with case, splash resistant, stereo sound, customizable controls, voice assistant support.</p>
+      </div>
+    </section>
+
+    <!-- XX59 Headphones -->
+    <section class="product-card">
+      <img src="audio_file/assets/product-xx59-headphones/desktop/image-product.jpg" alt="XX59 Headphones">
+      <div class="product-info">
+        <h2>XX59 Headphones <span class="price">$899</span></h2>
+        <p class="description">Versatile wireless headset with durable design, clear audio, and touch controls for modern listening.</p>
+        <h4>Features</h4>
+        <p class="features">Compact folding design, hands-free calling, 30hr battery, USB-C charging, synchronized wireless tech.</p>
+      </div>
+    </section>
+
+    <!-- XX99 Mark II Headphones -->
+    <section class="product-card">
+      <img src="audio_file/assets/product-xx99-mark-two-headphones/desktop/image-product.jpg" alt="XX99 Mark II">
+      <div class="product-info">
+        <h2>XX99 Mark II Headphones <span class="price">$2,999</span></h2>
+        <p class="description">Studio-quality sound, luxurious comfort, and advanced tech make this the ultimate audio experience.</p>
+        <h4>Features</h4>
+        <p class="features">Leather strap, auto on/off, ANC, Bluetooth 5.0, 17hr battery, built-in EQ and modern design.</p>
+      </div>
+    </section>
+
+    <!-- XX99 Mark I Headphones -->
+    <section class="product-card">
+      <img src="audio_file/assets/product-xx99-mark-one-headphones/desktop/image-product.jpg" alt="XX99 Mark I">
+      <div class="product-info">
+        <h2>XX99 Mark I Headphones <span class="price">$1,750</span></h2>
+        <p class="description">The gold standard in headphone design, offering studio-level sound for audiophiles and professionals.</p>
+        <h4>Features</h4>
+        <p class="features">Aerospace-grade materials, 27 dB passive isolation, handcrafted ear cushions, gold-balanced cable.</p>
+      </div>
+    </section>
+
+  </main>
+</body>
+</html>

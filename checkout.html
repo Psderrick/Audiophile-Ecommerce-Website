@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Checkout</title>
+   <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
+      color: #333;
+    }
+    nav {
+      background: #000;
+      color: #fff;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+    }
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background-color: #d87d4a;
+      color: white;
+      border: none;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+    }
+    .btn:hover {
+      background-color: #fbaf85;
+    }
+    .checkout-container,
+    .order-summary-container {
+      max-width: 800px;
+      margin: 2rem auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+    }
+    label {
+      display: block;
+      margin-bottom: 1rem;
+    }
+    input {
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 0.25rem;
+    }
+    #cart-summary {
+      margin-top: 1rem;
+      padding: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      background: #fafafa;
+    }
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .modal.hidden {
+      display: none;
+    }
+    .modal-content {
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      text-align: center;
+      max-width: 500px;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <h1>Checkout</h1>
+    <a href="index.html">Home</a>
+  </nav>
+
+  <h2>Your Cart</h2>
+  <div id="cart-items"></div>
+
+  <div class="totals">
+    <p>Subtotal: $<span id="subtotal">0</span></p>
+    <p>Shipping: $<span id="shipping">50</span></p>
+    <p>VAT (20%): $<span id="vat">0</span></p>
+    <p><strong>Total: $<span id="grand-total">0</span></strong></p>
+  </div>
+
+  <h2>Checkout Form</h2>
+  <form id="checkout-form">
+    <input type="text" id="name" placeholder="Name" required />
+    <input type="email" id="email" placeholder="Email" required />
+    <input type="text" id="address" placeholder="Shipping Address" required />
+    <div class="error" id="form-error"></div>
+    <button type="submit">Place Order</button>
+  </form>
+
+  <script>
+    const products = {
+      zx9: { name: "ZX9 Speaker", price: 4500 },
+      zx7: { name: "ZX7 Speaker", price: 3500 },
+      yx1: { name: "YX1 Earphones", price: 599 },
+      xx59: { name: "XX59 Headphones", price: 899 },
+      xx99: { name: "XX99 Mark II", price: 2999 },
+      xx99: { name: "XX99 Mark I", price: 1750 }
+    };
+
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const cartContainer = document.getElementById("cart-items");
+
+    let subtotal = 0;
+
+    cart.forEach(item => {
+      const product = products[item.key];
+      const itemTotal = product.price * item.quantity;
+      subtotal += itemTotal;
+
+      const itemDiv = document.createElement("div");
+      itemDiv.className = "cart-item";
+      itemDiv.innerHTML = `
+        <span>${product.name} (x${item.quantity})</span>
+        <span>$${itemTotal.toLocaleString()}</span>
+      `;
+      cartContainer.appendChild(itemDiv);
+    });
+
+    const vat = Math.round(subtotal * 0.2);
+    const shipping = 50;
+    const grandTotal = subtotal + vat + shipping;
+
+    document.getElementById("subtotal").textContent = subtotal.toLocaleString();
+    document.getElementById("vat").textContent = vat.toLocaleString();
+    document.getElementById("shipping").textContent = shipping.toLocaleString();
+    document.getElementById("grand-total").textContent = grandTotal.toLocaleString();
+
+    const form = document.getElementById("checkout-form");
+    const errorDiv = document.getElementById("form-error");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const address = document.getElementById("address").value.trim();
+
+      if (!name || !email || !address) {
+        errorDiv.textContent = "All fields are required.";
+        return;
+      }
+
+      localStorage.setItem("customerName", name);
+      localStorage.setItem("customerEmail", email);
+
+// Store the order summary
+const orderSummary = cart.map(item => ({
+  name: products[item.key].name,
+  price: products[item.key].price,
+  quantity: item.quantity,
+}));
+localStorage.setItem("orderSummary", JSON.stringify({ cart: orderSummary }));
+
+// Redirect to order confirmation page
+window.location.href = "order.html";
+    });
+  </script>
+</body>
+</html>
+
+
+

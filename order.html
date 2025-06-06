@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Order Confirmation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      background-color: #f5f5f5;
+    }
+
+    .container {
+      background-color: white;
+      padding: 30px;
+      max-width: 700px;
+      margin: 50px auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      color: #27ae60;
+    }
+
+    h2 {
+      margin-top: 40px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .total {
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+
+    .info {
+      margin-bottom: 10px;
+    }
+
+    .buttons {
+      margin-top: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-right: 15px;
+      padding: 10px 20px;
+      background-color: #d87d4a;
+      border: none;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    @media print {
+      .btn, .buttons {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container" id="receipt">
+    <h1>Thank You for Your Order!</h1>
+    <p>Your purchase has been confirmed. Below is your order receipt:</p>
+
+    <div class="info" id="customer-info"></div>
+
+    <h2>Order Summary</h2>
+    <ul id="order-summary"></ul>
+    <div class="total" id="total"></div>
+
+    <div class="buttons">
+      <a class="btn" href="index.html">Back to Home</a>
+      <button class="btn" onclick="window.print()">Print / Download Receipt</button>
+    </div>
+  </div>
+
+  <script>
+    const orderData = JSON.parse(localStorage.getItem("orderSummary")) || { cart: [] };
+    const customerName = localStorage.getItem("customerName")  || "N/A";
+    const customerEmail = localStorage.getItem("customerEmail") || "N/A";
+
+    const summaryContainer = document.getElementById("order-summary");
+    const totalDisplay = document.getElementById("total");
+    const customerInfo = document.getElementById("customer-info");
+
+    // Show customer info
+    customerInfo.innerHTML = `
+      <strong>Name:</strong> ${customerName}<br>
+      <strong>Email:</strong> ${customerEmail}<br>
+      <em>(A confirmation email has been sent)</em>
+    `;
+
+    let total = 0;
+
+    orderData.cart.forEach(item => {
+      const itemTotal = item.price * item.quantity;
+      total += itemTotal;
+
+      const li = document.createElement("li");
+      li.textContent = `${item.name} - $${item.price.toLocaleString()} x ${item.quantity} = $${itemTotal.toLocaleString()}`;
+      summaryContainer.appendChild(li);
+    });
+
+    totalDisplay.textContent = `Grand Total: $${total.toLocaleString()}`;
+
+    // Simulate email sending (just a log for demo)
+    console.log(`Email sent to ${customerEmail} with receipt.`);
+
+    // Optional: clear cart after order
+    localStorage.removeItem("cart");
+    localStorage.removeItem("orderSummary");
+    localStorage.removeItem("customerName");
+    localStorage.removeItem("customerEmail");
+  </script>
+
+</body>
+</html>
+
+
